@@ -58,4 +58,49 @@ describe('enhancer.js', () => {
 
 
 
+      describe("fail() method", () => {
+        it("should decrease durability by 5 if enhancement < 15", () => {
+          const item = {
+            name: "sword",
+            enhancement: 14,
+            durability: 10
+          };
+          const expected = {
+            name: "sword",
+            enhancement: 14,
+            durability: 5
+          };
+          const result = fail(item);
+          expect(result).toEqual(expected);
+        });
+        it("should decrease durability by 10 if enhancement >= 15", () => {
+          const item = {
+            name: "sword",
+            enhancement: 16,
+            durability: 15
+          };
+          const expected = {
+            name: "sword",
+            enhancement: 16,
+            durability: 5
+          };
+          const result = fail(item);
+          expect(result).toEqual(expected);
+        });
+        it("should decrease enhancement by 1 if enhancement > 16", () => {
+          const item = {
+            name: "sword",
+            enhancement: 17,
+            durability: 15
+          };
+          const expected = {
+            name: "sword",
+            enhancement: 16,
+            durability: 5
+          };
+          const result = fail(item);
+          expect(result).toEqual(expected);
+        });
+    });
+
 })
