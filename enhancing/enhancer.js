@@ -18,5 +18,8 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  const newItem = {...item};
+   newItem.durability = 100;
+   return newItem;
+  
 }
